@@ -48,3 +48,21 @@ https://ui.shadcn.com/docs/cli
 ✔ Updating app/globals.css
   Installing dependencies.
 ```
+
+## sanity setup
+
+https://www.sanity.io/manage/personal/project/tkbr7ftq/getting-started
+
+```
+Login successful
+Good stuff, you're now authenticated. You'll need a project to keep your
+datasets and collaborators safe and snug.
+✅ Fetching existing projects
+? Would you like to add configuration files for a Sanity project in this Next.js folder? Yes
+? Do you want to use TypeScript? Yes
+? Would you like an embedded Sanity Studio? Yes
+? What route do you want to use for the Studio? /studio
+? Select project template to use Clean project with no predefined schema types
+? Would you like to add the project ID and dataset to your .env.local file? Yes
+Added http://localhost:3000 to CORS origins
+```
