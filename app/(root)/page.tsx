@@ -1,4 +1,5 @@
 import Image from "next/image";
+import SearchForm from "@/app/components/SearchForm";
 
 export default function Home() {
   return (
@@ -12,6 +13,8 @@ export default function Home() {
           Submit Ideas, vote on Pitches, and Get Noticed in Virtual
           Competitions.
         </p>
+
+        <SearchForm />
       </section>
     </>
   );
