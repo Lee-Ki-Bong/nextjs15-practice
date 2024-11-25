@@ -1,4 +1,5 @@
 import SearchForm from "@/components/SearchForm";
+import StartupCard from "@/components/StartupCard";
 
 export default async function Home({
   searchParams,
@@ -6,6 +7,19 @@ export default async function Home({
   searchParams: Promise<{ query?: string }>;
 }) {
   const query = (await searchParams).query;
+  const posts = [
+    {
+      _createdAt: new Date(),
+      views: 100,
+      author: { _id: 1, name: "John Doe" },
+      _id: 1,
+      description:
+        "A startup that helps you find the best restaurants in your area",
+      image: "http://placehold.co/1200x900",
+      category: "Bobots",
+      title: "We Robots",
+    },
+  ];
   return (
     <>
       <section className="pink_container">
@@ -27,7 +41,13 @@ export default async function Home({
         </p>
 
         <ul className="mt-7 card_grid">
-          <p className="no-results">No startups found</p>
+          {posts?.length > 0 ? (
+            posts.map((post: StartupTypeCard) => (
+              <StartupCard key={post?._id} post={post} />
+            ))
+          ) : (
+            <p className="no-results">No startups found</p>
+          )}
         </ul>
       </section>
     </>
