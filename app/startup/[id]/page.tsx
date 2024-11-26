@@ -1,16 +1,15 @@
 import { formatDate } from "@/lib/utils";
-import { SanityLive, sanityFetch } from "@/sanity/lib/live";
 import { STARTUP_BY_ID_QUERY } from "@/sanity/lib/queries";
 import { notFound } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
+import { client } from "@/sanity/lib/client";
+
+export const experimental_ppr = true;
 
 const page = async ({ params }: { params: Promise<{ id: string }> }) => {
   const id = (await params).id;
-  const { data: post } = await sanityFetch({
-    query: STARTUP_BY_ID_QUERY,
-    params: { id },
-  });
+  const post = await client.fetch(STARTUP_BY_ID_QUERY, { id });
   if (!post) return notFound();
 
   return (
@@ -62,9 +61,6 @@ const page = async ({ params }: { params: Promise<{ id: string }> }) => {
 
         <hr className="divider" />
       </section>
-
-      {/** 페이지 내용업데이트 감지 */}
-      <SanityLive />
     </>
   );
 };
