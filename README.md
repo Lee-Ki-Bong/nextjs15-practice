@@ -81,3 +81,13 @@ https://www.sanity.io/manage/personal/project/tkbr7ftq/datasets
 ```
 npm install sanity-plugin-markdown -f
 ```
+
+## Sanity 프로젝트에서 스키마(schema)를 추출
+
+현재 Sanity 프로젝트에서 사용 중인 모든 스키마를 추출하여 JSON 파일로 저장.
+-path에 지정된 디렉토리가 존재하지 않으면 에러가 발생.
+
+```
+npx sanity@latest schema extract --path=./sanity/exract.json
+✅ Extracted schema to ./sanity/exract.json
+```
