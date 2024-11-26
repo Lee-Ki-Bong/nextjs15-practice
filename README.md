@@ -70,3 +70,8 @@ Added http://localhost:3000 to CORS origins
 ## .env.local NEXT_PUBLIC_SANITY_PROJECT_ID 추가
 
 https://www.sanity.io/manage/personal/project/tkbr7ftq/settings
+
+## .env.local NEXT_PUBLIC_SANITY_DATASET 추가
+
+title 을 추가하면된다.
+https://www.sanity.io/manage/personal/project/tkbr7ftq/datasets
