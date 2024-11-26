@@ -66,3 +66,7 @@ datasets and collaborators safe and snug.
 ? Would you like to add the project ID and dataset to your .env.local file? Yes
 Added http://localhost:3000 to CORS origins
 ```
+
+## .env.local NEXT_PUBLIC_SANITY_PROJECT_ID 추가
+
+https://www.sanity.io/manage/personal/project/tkbr7ftq/settings
