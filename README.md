@@ -88,6 +88,27 @@ npm install sanity-plugin-markdown -f
 -path에 지정된 디렉토리가 존재하지 않으면 에러가 발생.
 
 ```
-npx sanity@latest schema extract --path=./sanity/exract.json
-✅ Extracted schema to ./sanity/exract.json
+npx sanity@latest schema extract --path=./sanity/extract.json
+✅ Extracted schema to ./sanity/extract.json
+```
+
+## Sanity Typegen 도구로 스키마를 기반으로 type 생성
+
+Sanity 스키마를 기반으로 TypeScript 타입 정의를 자동 생성하고 관리하는 데 핵심적인 역할
+
+1. /sanity-typegen.json 파일생성 & 설정 저장
+
+```
+{
+  "path": "./src/**/*.{ts,tsx,js,jsx}", // Sanity 스키마를 기반으로 타입을 생성할 때 참조할 코드 파일 경로
+  "schema": "./sanity/extract.json",   // Sanity에서 추출된 스키마 파일 경로 (JSON 형식으로 저장됨)
+  "generates": "./sanity/types.ts"     // Sanity 스키마로 생성된 TypeScript 타입 정의를 저장할 파일 경로
+}
+```
+
+2. 명령어 실행
+
+```
+npx sanity@latest typegen generate
+✅ Generated TypeScript types for 15 schema types and 0 GROQ queries in 0 files into: ./sanity/types.ts
 ```
