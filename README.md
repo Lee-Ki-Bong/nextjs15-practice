@@ -75,3 +75,9 @@ https://www.sanity.io/manage/personal/project/tkbr7ftq/settings
 
 title 을 추가하면된다.
 https://www.sanity.io/manage/personal/project/tkbr7ftq/datasets
+
+## markdown 타입 추가를 위한패키지 설치
+
+```
+npm install sanity-plugin-markdown -f
+```
