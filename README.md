@@ -112,3 +112,14 @@ Sanity 스키마를 기반으로 TypeScript 타입 정의를 자동 생성하고
 npx sanity@latest typegen generate
 ✅ Generated TypeScript types for 15 schema types and 0 GROQ queries in 0 files into: ./sanity/types.ts
 ```
+
+[참고] package.json 에 명령어 추가
+
+```
+{
+  "predev": "npm run typegen", // 'npm run dev'를 실행하기 전에 'typegen' 스크립트를 실행하여 타입 생성 작업을 수행
+  "prebuild": "npm run typegen", // 'npm run build'를 실행하기 전에 'typegen' 스크립트를 실행하여 타입 생성 작업을 수행
+  "typegen": "sanity schema extract --path=./sanity/extract.json && sanity typegen generate" // Sanity 스키마를 추출하고 이를 기반으로 TypeScript 타입 정의를 생성
+}
+
+```
