@@ -1,6 +1,11 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
+/**
+ * EasyMDE 마크다운 에디터의 스타일 로드 필요함 없으면 UI가 이상하게 보임
+ * 관련 패키지 easymde 는 sanity-plugin-markdown 설치하면서 자동으로 설치됨
+ */
+import "easymde/dist/easymde.min.css";
 
 const workSans = localFont({
   src: [
