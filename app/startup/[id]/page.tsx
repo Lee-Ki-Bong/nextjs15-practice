@@ -6,6 +6,9 @@ import Link from "next/link";
 import { client } from "@/sanity/lib/client";
 import markdownit from "markdown-it";
 import DOMPurify from "isomorphic-dompurify";
+import { Suspense } from "react";
+import { Skeleton } from "@/components/ui/skeleton";
+import View from "@/components/View";
 
 const md = markdownit();
 
@@ -66,6 +69,8 @@ const page = async ({ params }: { params: Promise<{ id: string }> }) => {
             <p className="category-tag">{post.category}</p>
           </div>
 
+          <hr className="divider" />
+
           <h3 className="text-30-bold">Pitch Details</h3>
           {sanitizedContent ? (
             <article
@@ -77,7 +82,9 @@ const page = async ({ params }: { params: Promise<{ id: string }> }) => {
           )}
         </div>
 
-        <hr className="divider" />
+        <Suspense fallback={<Skeleton className="view_skeleton" />}>
+          <View id={id} />
+        </Suspense>
       </section>
     </>
   );
