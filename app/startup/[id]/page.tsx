@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { client } from "@/sanity/lib/client";
 import markdownit from "markdown-it";
+import DOMPurify from "isomorphic-dompurify";
 
 const md = markdownit();
 
@@ -16,6 +17,8 @@ const page = async ({ params }: { params: Promise<{ id: string }> }) => {
   if (!post) return notFound();
 
   const parsedContent = md.render(post?.pitch || "");
+
+  const sanitizedContent = DOMPurify.sanitize(parsedContent); // HTML 정화
 
   return (
     <>
@@ -64,10 +67,10 @@ const page = async ({ params }: { params: Promise<{ id: string }> }) => {
           </div>
 
           <h3 className="text-30-bold">Pitch Details</h3>
-          {parsedContent ? (
+          {sanitizedContent ? (
             <article
               className="prose max-w-4xl font-work-sans break-all"
-              dangerouslySetInnerHTML={{ __html: parsedContent }}
+              dangerouslySetInnerHTML={{ __html: sanitizedContent }}
             />
           ) : (
             <p className="no-result">No details provided</p>
