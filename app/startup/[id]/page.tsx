@@ -16,8 +16,8 @@ const page = async ({ params }: { params: Promise<{ id: string }> }) => {
   const post = await client.fetch(STARTUP_BY_ID_QUERY, { id });
   if (!post) return notFound();
 
+  // 마크다운 HTML로 변환하면서 XSS 방지
   const parsedContent = md.render(post?.pitch || "");
-
   const sanitizedContent = DOMPurify.sanitize(parsedContent); // HTML 정화
 
   return (
