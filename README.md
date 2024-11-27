@@ -123,3 +123,7 @@ npx sanity@latest typegen generate
 }
 
 ```
+
+## markdonw-it 패키지 설치
+
+https://www.npmjs.com/package/markdown-it

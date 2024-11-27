@@ -57,6 +57,8 @@ const page = async ({ params }: { params: Promise<{ id: string }> }) => {
 
             <p className="category-tag">{post.category}</p>
           </div>
+
+          <h3 className="text-30-bold">Pitch Details</h3>
         </div>
 
         <hr className="divider" />
